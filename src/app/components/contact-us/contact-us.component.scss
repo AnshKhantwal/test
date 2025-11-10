@@ -762,3 +762,103 @@ textarea:focus {
     border-width: 3px;
   }
 }
+
+.form-sub-text {
+  color: $medium-text;
+  font-size: 0.95em;
+  margin-top: -10px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.detail-group.basic-contact .detail-label::before {
+  content: '☎️' !important;
+}
+
+.detail-group.basic-contact:nth-of-type(2) .detail-label::before {
+  content: '✉️' !important;
+}
+
+.contact-details-card .detail-group {
+  margin-bottom: 18px;
+  padding: 14px 12px;
+}
+
+.contact-form-card {
+  form {
+    width: 100%;
+  }
+}
+/* =======================
+   SUCCESS POPUP STYLING
+   ======================= */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.popup-box {
+  background: $white;
+  padding: 30px 26px;
+  border-radius: 14px;
+  max-width: 330px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(57, 51, 98, 0.22);
+  animation: scaleIn 0.25s ease-out;
+}
+
+.popup-icon {
+  font-size: 2.6rem;
+  color: #3EB489; // Soft success green
+  margin-bottom: 10px;
+}
+
+.popup-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $primary-purple;
+  margin-bottom: 8px;
+}
+
+.popup-text {
+  font-size: 0.98rem;
+  color: $medium-text;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.popup-button {
+  background: linear-gradient(135deg, $accent-coral 0%, color.adjust($accent-coral, $lightness: -8%) 100%);
+  color: $white;
+  border: none;
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.25s ease;
+
+  &:hover {
+    background: color.adjust($accent-coral, $lightness: -6%);
+    transform: translateY(-2px);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; } 
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; } 
+  to   { transform: scale(1); opacity: 1; }
+}

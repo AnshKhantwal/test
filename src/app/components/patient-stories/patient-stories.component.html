@@ -1,6 +1,14 @@
 <section class="testimonials-section">
   <div class="section-header">
-    <h2>Patient Testimonials</h2>
+    <h2>What Our Patients Say</h2>
+  </div>
+
+  <p class="testimonial-intro">
+    Every recovery journey matters. Here are real experiences shared by patients who trusted us with their TB care.
+  </p>
+
+  <div class="verified-line">
+    ★ Verified Google Patient Reviews
   </div>
 
   <div class="carousel-container">
@@ -10,14 +18,18 @@
       <i class="fa fa-chevron-left"></i>
     </button>
     
-    <!-- Testimonial Slides (Visible area) -->
+    <!-- Testimonial Slides -->
     <div class="slides-wrapper">
       <div 
         class="testimonial-slider"
         [style.transform]="'translateX(' + (-currentSlideIndex * 100) + '%)'"
       >
-        <!-- Individual Testimonial Cards -->
         <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+
+          <div class="review-avatar">
+            {{ testimonial.name.charAt(0).toUpperCase() }}
+          </div>
+
           <div class="quote-content">
             <i class="fa fa-quote-left quote-icon"></i>
             <p class="quote-text">{{ testimonial.quote }}</p>
@@ -25,8 +37,14 @@
           
           <div class="author-info">
             <p class="author-name"><strong>{{ testimonial.name }}</strong></p>
-            <p class="author-title">{{ testimonial.title }}</p>
+            <p class="author-title">Recovered Patient</p>
+
+            <div class="google-review-badge">
+              <img src="../../assets/google-icon.png" alt="Google Logo">
+              <span>Google Review</span>
+            </div>
           </div>
+
         </div>
       </div>
     </div>

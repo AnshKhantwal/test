@@ -4,17 +4,19 @@
 
       <div class="footer-main-content">
 
+        <!-- BRANDING + CONTACT -->
         <div class="branding-section">
           <div class="footer-logo">
             <img src="assets/hospital-logo.png" alt="TB Clinic Logo">
           </div>
 
           <div class="contact-info-wrapper">
+
             <p class="contact">
               <i class="fa fa-phone"></i>
               <span>
-                Have a question? Call us<br>
-                <span class="phone-number">now +91 98-100-26456</span>
+                Need guidance? Speak to our care team<br>
+                <span class="phone-number">+91 98-100-26456</span>
               </span>
             </p>
 
@@ -25,18 +27,21 @@
 
             <p class="email">
               <i class="fa fa-map-marker-alt"></i>
-              <span>C-45, West Jyoti Nagar, Shahdra Delhi – 94</span>
+              <span>C-45, West Jyoti Nagar, Shahdara, Delhi - 94</span>
             </p>
 
-            <button class="btn-quick-enquiry">Quick Enquiry</button>
+            <a routerLink="/contact-us">
+              <button class="btn-quick-enquiry">Book Consultation</button>
+            </a>
           </div>
         </div>
 
+        <!-- LINKS GRID -->
         <div class="footer-grid">
 
+          <!-- Clinic Hours -->
           <div class="footer-col hours-col">
             <h4>Clinic Hours</h4>
-
             <div *ngFor="let item of clinicHours" class="hour-row">
               <i class="fa fa-clock"></i>
               <span class="days">{{ item.days }}</span>
@@ -44,22 +49,25 @@
             </div>
           </div>
 
+          <!-- Our Network (Google Map Links) -->
           <div class="footer-col network-col">
-            <h4>Our Network</h4>
+            <h4>Our Clinic Locations</h4>
             <ul>
               <li *ngFor="let link of networkOfCare2">
                 <i class="fa fa-map-marker-alt"></i>
-                <a [href]="link.url" target="_blank">{{ link.name }}</a>
+                <a [href]="link.url" target="_blank" rel="noopener">{{ link.name }}</a>
               </li>
             </ul>
-            <button class="btn-join-team">Join Our Team</button>
+
+            <button class="btn-join-team">Work With Us</button>
           </div>
 
+          <!-- Key Resources -->
           <div class="footer-col">
-            <h4>Others</h4>
+            <h4>Explore</h4>
             <ul>
               <li *ngFor="let link of keyResources">
-                <a href="#" (click)="navigate(link); $event.preventDefault()">{{ link.name }}</a>
+                <a (click)="navigate(link); $event.preventDefault()">{{ link.name }}</a>
               </li>
             </ul>
           </div>
@@ -67,10 +75,11 @@
         </div>
 
       </div>
-      </div>
+    </div>
   </div>
 
+  <!-- COPYRIGHT -->
   <div class="footer-bottom">
-    <p>© 2019 TB Clinic. All Rights Reserved</p>
+    <p>2019 TB Clinic. All Rights Reserved.</p>
   </div>
 </footer>

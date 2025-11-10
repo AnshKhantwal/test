@@ -1,4 +1,5 @@
 <section class="doctors-page-content">
+  <!-- CMO SECTION -->
   <div class="cmo-hero-section">
     <div class="container">
       <div class="cmo-card">
@@ -6,35 +7,43 @@
           <p class="cmo-designation">Chief Medical Officer</p>
           <h1 class="cmo-name">{{ cmo.name }}</h1>
           <p class="cmo-experience">
-            <span class="highlight">{{ cmo.experience }}</span>
-            of Dedicated Clinical Experience
+            <span class="highlight">{{ cmo.experience }}</span> in Advanced TB Care
           </p>
           <p class="cmo-bio">
-            Leading our clinic with unparalleled expertise in complex <strong>TB cases</strong>, Dr. Sunita (TB Expert) sets the standard for patient care and clinical innovation across our entire network.
+            {{ cmo.name }} leads our clinical programs with deep expertise in complex and drug-resistant TB. 
+            Her approach combines medical precision with compassionate patient-centered care, setting the 
+            clinical standards across all our centers.
           </p>
-          <button class="btn-appointment">Book Consultation</button>
+
+          <a routerLink="/contact-us" class="nav-link">
+            <button class="btn-appointment">Book Consultation</button>
+          </a>
         </div>
+
         <div class="cmo-photo-placeholder">
-          <span class="initials">S</span>
+          <span class="initials">{{ cmo.name.charAt(0) }}</span>
         </div>
       </div>
     </div>
   </div>
-  
+
+  <!-- SPECIALISTS GRID -->
   <div class="container">
     <h2 class="section-title">Meet the Specialists Behind Your Care</h2>
-    
+
     <div class="sub-doctors-grid-wrapper">
       <h3 class="sub-title">Our Core Team of TB Experts</h3>
+
       <div class="doctors-grid">
         <div *ngFor="let doctor of subDoctors" class="doctor-card">
           <div class="doctor-photo-placeholder">
-            <span class="initials">{{ doctor.name[4] }}</span>
+            <span class="initials">{{ doctor.name.charAt(0) }}</span>
           </div>
+
           <h4 class="doctor-name">{{ doctor.name }}</h4>
-          <p class="doctor-designation">
-            Consultant (TB Expert)
-          </p>
+          <p class="doctor-designation">Consultant TB Specialist</p>
+
+          <!-- Optional CTA (kept commented to maintain structure) -->
           <!-- <a href="#" class="btn-view-profile">View Profile & Book</a> -->
         </div>
       </div>

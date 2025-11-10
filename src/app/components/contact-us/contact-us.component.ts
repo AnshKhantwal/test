@@ -21,12 +21,22 @@ export class ContactUsComponent implements OnInit {
   };
 
   // Dropdown options
-  hospitals: string[] = ['Select Clinic (Nearest Metro Station)', 'Lawrence Road (Keshavpuram, Red Line)', 'Mayur Vihar (Mayur Vihar Pocket-I, Pink Line)', 'Durgapuri (Shahdra, Red Line)', 'Uttam Nagar (Nawada, Blue Line)', 'Tigri (Saket, Yellow Line)'];
+  hospitals: string[] = [
+    'Select Clinic (Nearest Metro Station)',
+    'Lawrence Road (Keshavpuram, Red Line)',
+    'Mayur Vihar (Mayur Vihar Pocket-I, Pink Line)',
+    'Durgapuri (Shahdra, Red Line)',
+    'Uttam Nagar (Nawada, Blue Line)',
+    'Tigri (Saket, Yellow Line)',
+  ];
 
   // Web3Forms API key
-  private WEB3FORMS_ACCESS_KEY = '282bc130-d161-4e24-9e93-8eeac1293408'; // <-- Replace with your actual key
+  private WEB3FORMS_ACCESS_KEY = '282bc130-d161-4e24-9e93-8eeac1293408'; 
 
-  constructor() { }
+  // ✅ Popup visibility state
+  showPopup: boolean = false;
+
+  constructor() {}
 
   ngOnInit(): void {
     if (!this.contactForm.hospital) {
@@ -36,13 +46,11 @@ export class ContactUsComponent implements OnInit {
 
   // Form submission handler
   async onSubmit(): Promise<void> {
-    // Basic validation
     if (!this.contactForm.name || !this.contactForm.mobile || this.contactForm.hospital === this.hospitals[0]) {
       alert('Please fill all required fields and select a clinic.');
       return;
     }
 
-    // Prepare form data for Web3Forms
     const formData = new FormData();
     formData.append('access_key', this.WEB3FORMS_ACCESS_KEY);
     formData.append('name', this.contactForm.name);
@@ -60,7 +68,8 @@ export class ContactUsComponent implements OnInit {
       const result = await response.json();
 
       if (result.success) {
-        alert('Thank you! Your enquiry has been sent successfully.');
+        // ✅ SHOW POPUP
+        this.showPopup = true;
         this.resetForm();
       } else {
         alert('Oops! Something went wrong. Please try again later.');
@@ -83,19 +92,21 @@ export class ContactUsComponent implements OnInit {
     };
   }
 
-  // Existing placeholders
+  // ✅ Close Popup Function
+  closePopup(): void {
+    this.showPopup = false;
+  }
+
+  // Chat & Extra Buttons
   openInternationalEnquiry(): void {
-    console.log('Opening International Patient Enquiry');
     alert('International Patient Enquiry link clicked!');
   }
 
   openQuickEnquiry(): void {
-    console.log('Opening Quick Enquiry');
     alert('Quick Enquiry link clicked!');
   }
 
   openChat(): void {
-    console.log('Chatbot icon clicked. Simulating external chat API call...');
-    alert('A live chat window would open here, triggered by an external script.');
+    alert('A live chat window would open here.');
   }
 }

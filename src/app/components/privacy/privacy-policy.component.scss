@@ -1,93 +1,101 @@
+@use "sass:color";
+
+$primary-purple: #393362;
+$accent-coral: #f15f64;
+$body-text: #333;
+$muted-text: #555;
+$light-bg: #fafafa;
+$border-light: #eee;
+
 .privacy-policy-container {
-    font-family: Arial, sans-serif;
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: 1.6;
-    color: #333;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  padding: 50px 22px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: $body-text;
+  line-height: 1.75;
 }
 
 .policy-header {
-    /* Updated styling for the new header structure */
-    border-bottom: 2px solid #5d507d; /* Darker line under the main title */
-    padding-bottom: 10px;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 35px;
+  padding-bottom: 18px;
+  border-bottom: 3px solid color.adjust($primary-purple, $lightness: -5%);
 
-    h1 {
-        font-size: 28px;
-        font-weight: 700;
-        color: #333;
-        margin: 0;
-    }
-    
-    .operated-by {
-        font-size: 16px;
-        color: #555;
-        margin-top: 5px;
-    }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primary-purple;
+  }
+
+  .operated-by {
+    margin-top: 6px;
+    font-size: 1rem;
+    color: $muted-text;
+  }
 }
 
 .policy-content {
-    p {
-        margin-bottom: 15px;
-    }
+  .intro-text {
+    font-size: 1.1rem;
+    text-align: center;
+    color: $muted-text;
+    margin-bottom: 30px;
+  }
+}
 
-    h2 {
-        font-size: 22px;
-        font-weight: 700;
-        color: #333;
-        margin-top: 30px;
-        margin-bottom: 15px;
-    }
+.policy-section {
+  background: $light-bg;
+  padding: 24px 26px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  border-left: 5px solid $primary-purple;
 
-    /* Style for all unordered lists */
-    ul {
-        list-style-type: disc;
-        margin-left: 20px;
-        padding-left: 0;
-        margin-bottom: 15px;
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $primary-purple;
+    margin-bottom: 14px;
+  }
 
-        li {
-            margin-bottom: 8px;
-            
-            /* Remove list-style for the contact section, if desired */
-            &:has(a) {
-                 list-style: none;
-            }
-        }
-    }
+  ul {
+    padding-left: 20px;
 
-    /* Styling for the data sharing table (Section 3) */
-    .sharing-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        
-        th, td {
-            text-align: left;
-            padding: 10px;
-            border-bottom: 1px solid #eee; /* Light separator */
-        }
-        
-        th {
-            font-weight: 700;
-            background-color: #f9f9f9;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
+    li {
+      margin-bottom: 8px;
+      color: $body-text;
     }
+  }
+}
 
-    address {
-        font-style: normal;
-        white-space: pre-line;
-        margin-top: 10px;
-    }
-    
-    hr {
-        border: none;
-        border-top: 1px solid #eee;
-        margin: 30px 0;
-    }
+.note-highlight {
+  background: rgba($accent-coral, 0.08);
+  border-left: 4px solid $accent-coral;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.sharing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid $border-light;
+  }
+
+  th {
+    background: #f4f4f4;
+    font-weight: 600;
+  }
+}
+
+.closing-note {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 0.95rem;
+  color: $muted-text;
+  padding-top: 10px;
 }

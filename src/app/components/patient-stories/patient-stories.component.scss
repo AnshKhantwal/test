@@ -776,3 +776,55 @@ $card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
     page-break-inside: avoid;
   }
 }
+.testimonial-intro {
+  text-align: center;
+  max-width: 850px;
+  margin: 5px auto 20px;
+  font-size: 1.15em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.verified-line {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 0.95em;
+  color: #666;
+  letter-spacing: 0.3px;
+}
+/* Avatar Circle */
+.review-avatar {
+  width: 65px;
+  height: 65px;
+  background: #393362;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.6em;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 25px;
+  box-shadow: 0 4px 15px rgba(57, 51, 98, 0.25);
+}
+
+/* Google Verified Badge */
+.google-review-badge {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #e8e8e8;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #444;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}

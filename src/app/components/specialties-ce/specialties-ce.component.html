@@ -1,35 +1,43 @@
 <section class="specialties-ce-section">
   <div class="ce-container">
+    
     <!-- LEFT SIDE -->
     <div class="ce-list-wrapper">
-      <h2>What We Treat</h2>
+      <h2 class="section-title">Conditions We Treat</h2>
+
+      <p class="intro-text">
+        Compassionate, evidence-based care for every stage and form of Tuberculosis. 
+        Our specialists ensure accurate diagnosis and guided recovery.
+      </p>
+
       <div class="specialties-grid">
         <div *ngFor="let spec of specialties" class="specialty-item">
           <img [src]="spec.icon" alt="{{ spec.name }} icon" />
-          <span>{{ spec.name }}</span>
+          <span class="spec-name">{{ spec.name }}</span>
         </div>
       </div>
     </div>
 
     <!-- RIGHT SIDE -->
     <div class="expert-search-section">
-  <div class="expert-text">
-    <h3>{{ expertSearchInfo.title }}</h3>
-    <p>{{ expertSearchInfo.description }}</p>
+      <div class="expert-text">
+        <h3>{{ expertSearchInfo.title }}</h3>
+        <p>{{ expertSearchInfo.description }}</p>
 
-    <button class="btn-doctor-search">
-      <span class="label">{{ expertSearchInfo.cta }}</span>
-      <span class="arrow">➜</span>
-    </button>
+        <button class="btn-doctor-search">
+          <span class="label">{{ expertSearchInfo.cta }}</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+
+      <div class="expert-illustration">
+        <img src="assets/doctor-search-illustration.png" alt="Doctor illustration" />
+      </div>
+    </div>
+
   </div>
 
-  <div class="expert-illustration">
-    <img src="assets/doctor-search-illustration.png" alt="Doctor illustration" />
-  </div>
-</div>
-
-  </div>
   <div class="banner">
-    <img src="assets/EI-Banner-bottom.png" alt="">
+    <img src="assets/EI-Banner-bottom.png" alt="Clinic Banner" />
   </div>
 </section>

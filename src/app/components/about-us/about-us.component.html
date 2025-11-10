@@ -1,10 +1,10 @@
 <div class="about-us-container">
-    
-    <!-- A. RED BANNER WITH STATS (YOUR PROVIDED CODE) -->
+
+    <!-- A. CARE BANNER WITH STATS -->
     <section class="about-us-banner">
         <div class="container">
             <h1 class="headline">
-                EXCEPTIONAL CARE. EVERY PATIENT. EVERY DAY
+                Compassionate, Evidence-Based Care for Every Patient
             </h1>
 
             <div class="stats">
@@ -21,63 +21,77 @@
         </div>
     </section>
 
-    <!-- B. OUR STORY SECTION (NEW CODE ADDED HERE) -->
+    <!-- B. OUR STORY SECTION -->
     <section class="story-section">
-    <div class="container story-content-wrapper">
-        <div class="story-image">
-            <img [src]="story.imageUrl" alt="Doctor talking to patient">
-        </div>
+        <div class="container story-content-wrapper">
 
-        <div class="story-content">
-            <h2 class="section-title">{{ story.title }}</h2>
-            <div [innerHTML]="story.content"></div> 
-        </div>
-    </div>
-</section>
-
-    <div class="banner">
-    <img src="assets/EI-Banner-bottom.png" style="width: 100%; height: 350px; margin-top: -60px; margin-bottom: 10px;" alt="">
-  </div>
-
-    <!-- C. THE VALUES THAT DEFINE US SECTION -->
-    <section class="values-section">
-    <h2>The Values That Define Us</h2> 
-    <div class="values-grid">
-        <div class="value-card" *ngFor="let value of values">
-            <div class="icon-placeholder">
-                <!-- Assuming value.icon holds a Font Awesome class -->
-                <i [class]="value.icon"></i> 
+            <div class="story-image">
+                <img [src]="story.imageUrl" alt="TB patient care and consultation">
             </div>
-            <h3>{{ value.title }}</h3>
-            <p>{{ value.description }}</p>
-        </div>
-    </div>
-</section>
-    
-    <!-- D. AWARDS SECTION -->
-    <!-- <section class="awards-section"> -->
-        <!-- Assuming you have an awards component defined and imported -->
-        <!-- <app-awards></app-awards>  -->
-    <!-- </section> -->
 
-    <!-- E. Testimonials Section -->
-    <section class="testimonials-section">
-    <h2>What Our Patients Says</h2>
-    
-    <div class="testimonials-grid">
-        <div class="testimonial-card" *ngFor="let testimonial of testimonials">
-            <i class="fa fa-quote-left quote-icon"></i>
-            
-            <p class="quote-text">{{ testimonial.quote }}</p>
-            
-            <div class="author-info">
-                <p class="author-name">
-                    <strong>{{ testimonial.name }}</strong>
+            <div class="story-content">
+                <h2 class="section-title">{{ story.title }}</h2>
+
+                <p>
+                    At TBClinic, we are dedicated to restoring health and dignity to individuals affected by tuberculosis. 
+                    Our multidisciplinary team combines <strong>clinical expertise, nutritional support, emotional reassurance, 
+                    and immunity-building guidance</strong> to enable complete and sustained recovery.
                 </p>
-                <p class="author-title">{{ testimonial.title }}</p>
+
+                <p>
+                    Guided by WHO-aligned treatment protocols and compassionate patient engagement, 
+                    we focus on **early diagnosis, effective treatment, prevention awareness, and holistic healing practices** 
+                    that protect both individuals and communities.
+                </p>
+
+                <p>
+                    We believe that healing is not only medical — it is emotional, nutritional, social, and deeply human.
+                    Every patient deserves care that is respectful, gentle, and thorough.
+                </p>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <div class="achievement-banner">
+  <img src="../../../assets/trophy.png" alt="Achievement Trophy" class="achievement-icon">
+
+  <div class="achievement-text">
+    Treating one of the highest number of TB patients in Delhi
+    <span class="sub-note">*As per Government Health Records*</span>
+  </div>
+</div>
+
+    <!-- C. VALUES SECTION -->
+    <section class="values-section">
+        <h2 class="section-title-light">Our Guiding Values</h2>
+
+        <div class="values-grid">
+            <div class="value-card" *ngFor="let value of values">
+                <div class="icon-placeholder">
+                    <i [class]="value.icon"></i>
+                </div>
+                <h3>{{ value.title }}</h3>
+                <p>{{ value.description }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- E. TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <h2>Patient Experiences</h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+                <i class="fa fa-quote-left quote-icon"></i>
+
+                <p class="quote-text">“{{ testimonial.quote }}”</p>
+
+                <div class="author-info">
+                    <p class="author-name"><strong>{{ testimonial.name }}</strong></p>
+                    <p class="author-title">{{ testimonial.title }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </div>

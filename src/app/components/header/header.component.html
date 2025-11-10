@@ -1,20 +1,27 @@
 <header class="main-header">
+    <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-content">
-                <span class="helpline">Helpline: +91 98-100-26456</span>
-                <a href="/our-doctors" class="nav-link"><button class="btn-book">Book Appointment</button></a>
+                <span class="helpline" (click)="onHelplineClick()">Care Helpline: +91 98-100-26456</span>
+                <a routerLink="/contact-us" class="nav-link">
+                    <button class="btn-book">Book Consultation</button>
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
+            <!-- Logo -->
             <div class="logo-area">
-                <a href="#" class="nav-link">
-                <img src="assets/hospital-logo.png" alt="RG Stone Urology & Laparoscopy Hospital" class="logo"></a>
+                <a routerLink="/" class="nav-link">
+                    <img src="assets/hospital-logo.png" alt="TB Clinic" class="logo">
+                </a>
             </div>
 
+            <!-- Mobile Toggle -->
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="menu-icon">
                 <span class="bar"></span>
@@ -22,26 +29,25 @@
                 <span class="bar"></span>
             </label>
 
+            <!-- Navigation Links -->
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }">Home</a>
                 </li>
                 <li class="nav-item">
-                        <a href="/about-us" class="nav-link">About TB Clinic</a>
+                    <a routerLink="/about-us" class="nav-link" routerLinkActive="active">About Our Clinic</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/tb-treatments" class="nav-link">
-                        What We Treat
-                    </a>
+                    <a routerLink="/tb-treatments" class="nav-link" routerLinkActive="active">Conditions We Treat</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/our-doctors" class="nav-link">Our Doctors</a>
+                    <a routerLink="/our-doctors" class="nav-link" routerLinkActive="active">Our TB Specialists</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/privacy" class="nav-link">Privacy Policy</a>
+                    <a routerLink="/privacy" class="nav-link" routerLinkActive="active">Privacy & Patient Rights</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/contact-us" class="nav-link">Contact Us</a>
+                    <a routerLink="/contact-us" class="nav-link" routerLinkActive="active">Contact & Support</a>
                 </li>
             </ul>
         </div>

@@ -1,12 +1,14 @@
 <section class="treatments-ce-section">
   <div class="ce-container">
+
     <div class="ce-list-wrapper">
-      <h2 class="section-title">Our Speciality</h2>
+      <h2 class="section-title">Conditions We Treat</h2>
+
       <div class="specialties-grid">
         <div *ngFor="let treatment of treatments" class="specialty-item">
-          
+
           <div class="item-header">
-            <img [src]="treatment.icon" [alt]="treatment.title + ' icon'" />
+            <img [src]="treatment.icon" [alt]="treatment.title" />
             <span class="treatment-name">{{ treatment.title }}</span>
           </div>
 
@@ -17,23 +19,10 @@
     </div>
 
     <div class="expert-search-section">
-  <div class="expert-text">
-    <h3>{{ expertSearchInfo.title }}</h3>
-    <p>{{ expertSearchInfo.description }}</p>
-
-    <button class="btn-doctor-search">
-      <span class="label">{{ expertSearchInfo.cta }}</span>
-      <span class="arrow">➜</span>
-    </button>
-  </div>
-
-  <div class="expert-illustration">
-    <img src="assets/doctor-search-illustration.png" alt="Doctor illustration" />
-  </div>
-</div>
+      <h3>{{ expertSearchInfo.title }}</h3>
+      <p>{{ expertSearchInfo.description }}</p>
+      <button class="btn-doctor-search">{{ expertSearchInfo.cta }}</button>
+    </div>
 
   </div>
-  <!-- <div class="banner">
-    <img src="assets/EI-Banner-bottom.png" style="width: 100%; height: 350px; margin-top: 20px;" alt="">
-  </div> -->
 </section>

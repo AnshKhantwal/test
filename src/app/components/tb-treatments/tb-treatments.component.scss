@@ -1,283 +1,137 @@
 @use "sass:color";
 
-$primary-red: #a00000;
-$dark-red-title: #9c0000;
-$dark-text: #333;
-$light-bg: #f5f5f5;
+$primary-purple: #393362;
+$accent-coral: #f15f64;
+$soft-bg: #f7f9fc;
+$dark-text: #2d2d2d;
+$muted-text: #555;
 
 .treatments-ce-section {
-  padding: 60px 0;
-  background-color: #fff;
+  padding: 70px 0;
+  background: linear-gradient(180deg, #ffffff 0%, $soft-bg 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 .ce-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 60px;
   flex-wrap: wrap;
+  gap: 60px;
 }
 
-/* --- LEFT SIDE: Treatment List --- */
-.ce-list-wrapper {
-  flex: 1;
-  min-width: 50%;
+/* Section Title */
+.ce-list-wrapper .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $primary-purple;
+  margin-bottom: 35px;
+  position: relative;
 
-  .section-title {
-    font-size: 28px;
-    color: $primary-red;
-    font-weight: 700;
-    margin-bottom: 25px;
-    text-align: left;
-  }
-
-  .specialties-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-    gap: 30px 40px;
-  }
-
-  .specialty-item {
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-
-    &:hover .treatment-name {
-      color: $primary-red;
-    }
-
-    .item-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 8px;
-    }
-
-    img {
-      width: 45px;
-      height: 45px;
-      object-fit: contain;
-      filter: invert(74%) sepia(35%) saturate(3015%) hue-rotate(338deg)
-        brightness(101%) contrast(98%);
-    }
-
-    .treatment-name {
-      color: $dark-text;
-      font-size: 16px;
-      font-weight: 600;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .treatment-details-text {
-      color: #666;
-      font-size: 15px;
-      line-height: 1.6;
-      padding-left: 60px;
-      margin-top: 0;
-    }
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-purple, $accent-coral);
+    border-radius: 2px;
+    margin-top: 10px;
   }
 }
 
-/* --- RIGHT SIDE: Expert Search Section --- */
-.expert-search-section {
-  margin-top: 150px;
-  flex: 1;
-  max-width: 450px;
-  background: $light-bg;
-  border-top-left-radius: 120px;
-  border-bottom-left-radius: 120px;
-  padding: 50px 40px 0 40px;
+/* Treatments Grid */
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+}
+
+.specialty-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
+  padding: 22px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+
+  img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+.treatment-name {
+  font-weight: 600;
+  color: $primary-purple;
+  font-size: 1.1rem;
+}
+
+.treatment-details-text {
+  color: $muted-text;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Expert Search Ribbon */
+.expert-search-section {
+  flex: 1;
+  background: $primary-purple;
+  color: white;
+  padding: 40px 35px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h3 {
-    color: $dark-red-title;
-    font-size: 24px;
+    font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 10px;
   }
 
   p {
-    color: #444;
-    font-size: 15px;
-    line-height: 1.6;
-    max-width: 340px;
-    margin-bottom: 25px;
+    font-size: 1rem;
+    margin: 18px 0 30px;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .btn-doctor-search {
-    display: inline-flex;
-    align-items: center;
+    background: $accent-coral;
     border: none;
-    cursor: pointer;
+    padding: 12px 26px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 15px;
-    border-radius: 4px;
-    overflow: hidden;
-
-    .label {
-      background-color: #f15f64;
-      color: #fff;
-      padding: 12px 24px;
-      transition: background 0.3s;
-    }
-
-    .arrow {
-      background-color: #d1d1d1;
-      color: #9c0000;
-      padding: 9px 14px;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 
     &:hover {
-      .label {
-        background-color: color.adjust(#9c0000, $lightness: -8%, $space: hsl);
-      }
-      .arrow {
-        background-color: color.adjust(#d1d1d1, $lightness: -8%, $space: hsl);
-        transform: translateX(2px);
-      }
-    }
-  }
-
-  .expert-illustration {
-    margin-top: 30px;
-    text-align: center;
-
-    img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      object-fit: contain;
+      background: color.adjust($accent-coral, $lightness: -8%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(241, 95, 100, 0.35);
     }
   }
 }
 
-/* --- RESPONSIVENESS --- */
-
-/* Tablets & Small Laptops */
-@media (max-width: 992px) {
-  .ce-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .ce-list-wrapper {
-    min-width: 100%;
-  }
-
-  .ce-list-wrapper .specialties-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  .expert-search-section {
-    margin-top: 40px;
-    border-radius: 20px;
-    padding: 30px 25px;
-    max-width: 100%;
-    text-align: center;
-
-    h3 {
-      font-size: 22px;
-    }
-
-    p {
-      max-width: 100%;
-    }
-
-    .btn-doctor-search {
-    flex-direction: row; /* <— force row layout */
-    width: 100%;
-    justify-content: center;
-
-    .label,
-    .arrow {
-      width: auto; /* don’t stretch */
-    }
-
-    .arrow {
-      padding: 9px 16px;
-    }
-  }
-  }
-}
-
-/* Phones */
-@media (max-width: 576px) {
-  .treatments-ce-section {
-    padding: 40px 0;
-  }
-
-  .ce-list-wrapper .section-title {
-    font-size: 22px;
-    text-align: center;
-  }
-
-  .ce-list-wrapper .specialties-grid {
+/* Mobile */
+@media (max-width: 768px) {
+  .specialties-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
   }
-
-  .specialty-item {
-    .item-header img {
-      width: 40px;
-      height: 40px;
-    }
-
-    .treatment-name {
-      font-size: 15px;
-    }
-
-    .treatment-details-text {
-      padding-left: 0;
-      font-size: 14px;
-      line-height: 1.5;
-      text-align: justify;
-    }
-  }
-
   .expert-search-section {
-    margin-top: 20px;
-    border-radius: 16px;
-    padding: 25px 20px;
-
-    h3 {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 14px;
-    }
-
-    .btn-doctor-search {
-    flex-direction: row; /* <— force row layout */
-    width: 100%;
-    justify-content: center;
-
-    .label,
-    .arrow {
-      width: auto; /* don’t stretch */
-    }
-
-    .arrow {
-      padding: 9px 16px;
-    }
-  }
-
-    .expert-illustration img {
-      max-width: 300px;
-    }
+    text-align: center;
   }
 }

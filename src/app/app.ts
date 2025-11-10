@@ -13,7 +13,6 @@ import { TbTreatmentsComponent } from './components/tb-treatments/tb-treatments.
 import { SpecialtiesCeComponent } from './components/specialties-ce/specialties-ce.component';
 import { NetworkComponent } from './components/network/network.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AboutHospitalComponent } from './components/about-hospital/about-hospital.component'; 
 import { PatientStoriesComponent } from './components/patient-stories/patient-stories.component';
 // import { VideoCardComponent } from './components/video-card/video-card.component'; 
 import { AboutUsComponent } from './components/about-us/about-us.component';

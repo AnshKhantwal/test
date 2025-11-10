@@ -55,27 +55,28 @@ export class AboutUsComponent implements OnInit {
 
   // Data for the 'Values' Section (placeholder, complete this later)
   values = [
-    { 
-      title: 'EXCELLENCE', 
-      description: 'We are dedicated to establishing the gold standard in tuberculosis healthcare. Our commitment to excellence encompasses every critical stage, from rapid, accurate diagnosis to comprehensive, long-term patient support. Our core goal is to consistently exceed expectations through specialized protocols and by upholding the highest professional and ethical standards in modern TB medicine.',
-      icon: 'fas fa-handshake' // Icon for Excellence/Standard
-    },
-    { 
-      title: 'QUALITY CARE', 
-      description: 'We strive for excellence across the entire spectrum of tuberculosis healthcare—from precise diagnosis and advanced MDR/XDR treatment protocols to unwavering patient support. Our goal is to consistently exceed expectations by strictly adhering to the highest specialized TB professional and medical standards, ensuring optimal safety and improved long-term patient outcomes.',
-      icon: 'fas fa-heartbeat' // Icon for Quality Care
-    },
-    { 
-      title: 'EMPATHY', 
-      description: 'We firmly believe in treating every patient battling TB with unwavering compassion, understanding, and respect. By actively listening to our patients unique concerns and needs throughout their complex treatment, we immediately foster trust and build the strong, supportive relationships critical for a successful and complete healing journey.',
-      icon: 'fas fa-hands-helping' // Icon for Empathy/Helping Hand
-    },
-    { 
-      title: 'INNOVATION', 
-      description: 'We wholeheartedly embrace advanced technologies and continually seek innovative solutions engineered to radically improve TB healthcare practices. Our fierce commitment to innovation ensures we stay ahead, offering the latest and most effective diagnostic tools and treatment regimens available, including specialized care for drug-resistant cases.',
-      icon: 'fas fa-lightbulb' // Icon for Innovation
-    }
-  ];
+  { 
+    title: 'Excellence', 
+    description: 'We are committed to delivering the highest standard of tuberculosis care. From accurate diagnosis to long-term recovery support, we consistently uphold strong clinical ethics and professional integrity in every step of treatment.',
+    icon: 'fas fa-handshake'
+  },
+  { 
+    title: 'Quality Care', 
+    description: 'We ensure safe, effective, and compassionate treatment by adhering to advanced TB care protocols and evidence-based practices. Every patient receives attentive guidance and continuous medical support throughout recovery.',
+    icon: 'fas fa-heartbeat'
+  },
+  { 
+    title: 'Empathy', 
+    description: 'We listen, understand, and stand beside every patient with respect and compassion. Our supportive care environment helps restore emotional strength, confidence, and hope during recovery.',
+    icon: 'fas fa-hands-helping'
+  },
+  { 
+    title: 'Innovation', 
+    description: 'We adopt modern diagnostic tools, advanced treatment strategies, and ongoing research-driven improvements to provide effective care — including support for complex and drug-resistant TB cases.',
+    icon: 'fas fa-lightbulb'
+  }
+];
+
 
   testimonials = [
   { 

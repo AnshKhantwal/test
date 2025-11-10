@@ -345,3 +345,43 @@ $map-border: #f2f2f2;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
+/* Clean branch titles */
+.branch-name-header {
+  text-align: center;
+  padding-top: 18px !important;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/* Slight breathing room for cards */
+.location-card {
+  border-radius: 12px;
+}
+
+/* Mobile text refinement */
+@media (max-width: 600px) {
+  .network-info-panel {
+    padding: 24px 18px;
+    text-align: center;
+  }
+
+  .branch-details .address-line {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .btn-get-directions {
+    width: 92%;
+    text-align: center;
+  }
+}
+
+/* Better map pin visibility on mobile */
+@media (max-width: 480px) {
+  .map-location-pin {
+    width: 18px;
+    height: 18px;
+    box-shadow: 0 0 0 3px rgba($primary-red, 0.35);
+  }
+}

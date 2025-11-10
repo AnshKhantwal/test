@@ -1,358 +1,243 @@
 @use 'sass:color';
 
-$primary-red: #f15f64; 
-$text-color: #FFFFFF; 
-$border-color: #FFFFFF;
-
-$primary-dark-color: #06457F; // New Dark Blue background for Values/General Headings
+$primary-teal: #005F73;
+$accent-teal-light: #9EE0D2;
+$warm-sand: #E9DCC9;
+$charcoal: #2C2C2C;
+$white: #FFFFFF;
 $light-bg: #F5F5F5;
-$dark-text: #333;
 
-$mobile-breakpoint: 768px;
-$tablet-breakpoint: 992px;
+$mobile: 768px;
+$tablet: 992px;
 
-/* --- FONT IMPORTS (Ensure these are in your main file or CDN link is added to HTML head) --- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
 
-/* --- GLOBAL STYLES --- */
 .about-us-container {
-    font-family: 'Roboto', sans-serif; // Set global body font
-    color: $dark-text;
+    font-family: 'Inter', sans-serif;
+    color: $charcoal;
 }
 
+/* Section Containers */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: auto;
+    padding: 0 18px;
 }
 
-h2.section-title {
-    font-family: 'Montserrat', sans-serif; // Use Montserrat for section titles
-    font-size: 2.2em;
-    font-weight: 700;
-    color: $primary-dark-color; 
-    text-align: center;
-    margin-bottom: 30px;
+/* A. Banner */
+.achievement-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 45px 0;
+  background: $white;
+
+  .achievement-icon {
+    width: 200px;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  .achievement-text {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $primary-teal;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .sub-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+  }
 }
 
-/* --- A. RED BANNER WITH STATS --- */
+/* Mobile adjustment */
+@media(max-width: 768px) {
+  .achievement-text {
+    font-size: 1.15rem;
+    padding: 0 16px;
+  }
+}
+
 .about-us-banner {
-    background-color: $primary-red; /* CHANGED: Use dark blue to contrast with white text */
-    padding: 40px 0;
-}
+    background-color: $primary-teal;
+    padding: 50px 0;
+    text-align: center;
 
-.headline {
-    font-family: 'Montserrat', sans-serif; // Use Montserrat for headline
-    font-size: 2.8em;
-    font-weight: 700; // Adjusted for better impact
-    color: $text-color;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center; // Added for better centering
-}
-
-.stats {
-    display: flex;
-    justify-content: center;
-    gap: 15px; 
-    padding-bottom: 20px;
-}
-
-.stat-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; 
-    
-    border: 2px solid $border-color;
-    border-radius: 40px; 
-    padding: 10px 17px; 
-    min-width: 150px; 
-    height: 90px;
-}
-
-.icon {
-    font-size: 2.4em;
-    color: $text-color;
-    margin-right: 15px;
-}
-
-.details {
-    text-align: left;
-    h2 {
-        font-size: 1.4em;
+    .headline {
+        font-family: 'Merriweather', serif;
+        font-size: 2.2rem;
         font-weight: 700;
-        color: $text-color;
-        margin: 0;
+        color: $white;
+        line-height: 1.4;
+        margin-bottom: 28px;
+        padding: 0 10px;
     }
-    p {
-        font-size: 0.7em;
-        color: $text-color;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin: 0;
-    }
-}
 
-/* --- B. OUR STORY SECTION --- */
-.story-section {
-    background-color: $light-bg; /* Added light background for contrast with dark text from previous version */
-    padding: 80px 0; 
-    font-family: 'Roboto', sans-serif; /* Applied font to section */
-    color: $dark-text;
-    
-    .story-content-wrapper {
+    .stats {
         display: flex;
-        align-items: flex-start;
-        gap: 50px;
-    }
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
 
-    .story-image {
-        flex: 1; 
-        position: relative;
-        padding: 20px; 
-        
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-            position: relative;
-            z-index: 2;
-        }
+        .stat-card {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid $white;
+            border-radius: 16px;
+            padding: 14px 18px;
+            background: transparent;
+            min-width: 140px;
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-bottom: 5px solid $primary-red; 
-            border-left: 5px solid $primary-red;   
-            z-index: 1;
-        }
-    }
+            .icon {
+                font-size: 1.9rem;
+                margin-right: 12px;
+                color: $white;
+            }
 
-    .story-content {
-        flex: 1; 
-        padding-top: 10px; 
-        
-        .section-title {
-            color: $primary-red; 
-            text-align: left;
-            font-size: 2.2em;
-            font-family: 'Montserrat', sans-serif; /* Applied font to story title */
-            font-weight: 700;
-        }
-        
-        /* Styles for content loaded via [innerHTML] */
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            color: $primary-dark-color; // Use dark blue for story subheadings
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-       ul {
-            list-style: disc outside; 
-            margin-top: 15px; 
-            padding-left: 20px; 
-            color: $dark-text;
-            
-            li {
-                margin-bottom: 10px; 
-                line-height: 1.6; 
-                color: $dark-text;
-
-                ul {
-                    list-style: circle outside; 
-                    margin-top: 5px;
-                    margin-bottom: 5px;
-                    padding-left: 20px;
+            .details {
+                h2 {
+                    color: $white;
+                    margin: 0;
+                    font-size: 1.4rem;
+                }
+                p {
+                    margin: 0;
+                    color: $white;
+                    font-size: 0.8rem;
                 }
             }
         }
-
-        p {
-            margin-bottom: 15px; 
-            line-height: 1.7; /* Increased line height for better readability */
-            color: $dark-text;
-        } 
     }
 }
 
+/* B. Story Section */
+.story-section {
+    background: $light-bg;
+    padding: 70px 0;
 
-/* --- C, D, E. GENERAL PAGE SECTIONS --- */
-.awards-section, 
-.values-section {
-    padding: 40px 20px;
-    max-width: 100%; 
-    margin: 0 auto;
+    .story-content-wrapper {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .story-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .story-content {
+        flex: 1;
+
+        p {
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+    }
 }
 
-/* VALUES GRID */
+.about-bottom-banner {
+    width: 100%;
+    height: auto;
+    margin-top: -40px;
+}
+
+/* C. Values */
 .values-section {
-    background-color: $primary-dark-color; 
-    
-    h2 {
-        color: $text-color; 
+    background-color: $primary-teal;
+    padding: 50px 15px;
+
+    .section-title-light {
+        color: $white;
+        text-align: center;
+        font-family: 'Merriweather', serif;
+        font-size: 2rem;
+        margin-bottom: 40px;
     }
 
     .values-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         gap: 25px;
-        max-width: 1200px; 
-        margin: 0 auto;
     }
-    
+
     .value-card {
-        background: $text-color; 
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        background: $white;
+        border-radius: 12px;
+        padding: 22px;
         text-align: center;
-        
-        .icon-placeholder {
-            i {
-                font-size: 3em;
-                color: $primary-red; 
-                margin-bottom: 15px;
-                display: block;
-            }
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+        i {
+            font-size: 2.4rem;
+            color: $primary-teal;
+            margin-bottom: 12px;
         }
 
         h3 {
-            color: $dark-text; 
-            text-transform: uppercase;
-            font-weight: 700;
             margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif; // Applied font
+            font-weight: 600;
         }
-        
+
         p {
-            color: $dark-text; 
-            font-size: 0.9em;
-            line-height: 1.5;
-            font-family: 'Roboto', sans-serif; // Applied font
+            font-size: 0.95rem;
+            line-height: 1.55;
         }
     }
 }
 
-/* TESTIMONIALS  */
+/* Testimonials */
 .testimonials-section {
-    padding: 60px 0;
+    background: $light-bg;
+    padding: 50px 15px;
     text-align: center;
-    background-color: $light-bg; 
 
     h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 2.5em;
+        font-family: 'Merriweather', serif;
+        font-size: 2rem;
         margin-bottom: 40px;
-        color: $primary-red;
+        color: $primary-teal;
     }
 
     .testimonials-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 22px;
     }
 
     .testimonial-card {
-        background: $text-color;
-        padding: 30px;
+        background: $white;
         border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 28px;
+        min-height: 220px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
         text-align: left;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 250px; 
-    }
 
-    .quote-icon {
-        font-size: 2em;
-        color: $primary-red; 
-        margin-bottom: 10px;
-    }
-
-    .quote-text {
-        font-size: 1.1em;
-        font-style: italic;
-        color: $dark-text;
-        margin-bottom: 20px;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .author-info {
-        border-top: 1px solid #eee;
-        padding-top: 15px;
-
-        .author-name {
-            font-size: 1em;
-            color: $dark-text;
-            margin-bottom: 2px;
-            font-family: 'Montserrat', sans-serif;
+        .quote-icon {
+            font-size: 1.8rem;
+            color: $primary-teal;
+            margin-bottom: 10px;
         }
 
-        .author-title {
-            font-size: 0.9em;
-            color: $dark-text;
-            font-family: 'Roboto', sans-serif;
+        .quote-text {
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 18px;
         }
     }
 }
 
-
-/* --- Responsive Adjustments --- */
-@media (max-width: $tablet-breakpoint) { // 992px
-    .story-section .story-content-wrapper {
-        flex-direction: column; 
-        align-items: center;
-    }
-    .story-section .story-image {
-        width: 80%;
-        padding: 10px;
-    }
-    .story-section .story-content .section-title {
-        text-align: center;
-    }
-    .values-section .values-grid {
-        grid-template-columns: repeat(2, 1fr); // 2 columns on tablet
-    }
-    .stats {
-        flex-wrap: wrap; /* Allow stats to wrap on tablet */
-    }
-    .stat-card {
-        min-width: 45%; /* Allow two cards per row */
-        height: auto;
-    }
-}
-
-@media (max-width: $mobile-breakpoint) { // 768px
-    .headline {
-        font-size: 1.8em;
-    }
-    .stats {
-        flex-direction: column; /* Stack stats vertically on mobile */
-        align-items: center;
-    }
-    .stat-card {
-        min-width: 90%; /* Full width cards */
-    }
-    .values-section .values-grid {
-        grid-template-columns: 1fr; // Stack values vertically
-    }
-    /* Note: Leadership/Team styles were not fully provided, but kept for context if they exist */
-    .leadership-section .team-grid {
-        flex-direction: column;
-        align-items: center;
-        .team-member {
-            width: 80%;
-        }
-    }
+/* RESPONSIVE */
+@media (max-width: $mobile) {
+    .headline { font-size: 1.6rem; }
+    .story-content-wrapper { flex-direction: column; }
 }
