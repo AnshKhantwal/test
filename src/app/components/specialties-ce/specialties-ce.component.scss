@@ -161,3 +161,42 @@ $muted-text: #555;
     text-align: center;
   }
 }
+.achievement-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 45px 0;
+  background: #FFFFFF;
+  margin-top: 15px;
+
+  .achievement-icon {
+    width: 200px;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  .achievement-text {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #005F73; /* Your primary teal */
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .sub-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+  }
+}
+
+@media(max-width: 768px) {
+  .achievement-banner .achievement-text {
+    font-size: 1.15rem;
+    padding: 0 16px;
+  }
+}
