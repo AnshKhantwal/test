@@ -455,7 +455,7 @@ $border-color: #e0e0e0;
   }
   
   .branding-section {
-    width: 100%;
+    width: 95%;
     max-width: 600px;
     margin: 0 auto;
     
@@ -534,7 +534,7 @@ $border-color: #e0e0e0;
   .footer-col {
     padding-bottom: 25px;
     border-bottom: 1px solid $border-color;
-    margin-left: 30px !important;
+    // margin-left: 30px !important;
     
     &:last-child {
       border-bottom: none;
@@ -623,7 +623,7 @@ $border-color: #e0e0e0;
   .branding-section {
     gap: 18px;
     padding: 12px;
-    margin-left: -14px;
+    margin-left: -5px;
 
     .footer-logo img {
       height: 65px;
@@ -656,7 +656,7 @@ $border-color: #e0e0e0;
 
   .footer-col {
     padding-bottom: 20px;
-    margin-left: 30px !important;
+    // margin-left: 30px;
     
     h4 {
       font-size: 16px;
