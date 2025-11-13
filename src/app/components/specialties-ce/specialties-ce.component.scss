@@ -200,3 +200,18 @@ $muted-text: #555;
     padding: 0 16px;
   }
 }
+/* ============================================
+   MOBILE SPACING FIX FOR ALL DEVICES
+   ============================================ */
+
+@media (max-width: 480px) {
+  .specialties-ce-section {
+    margin-top: 380px !important;   /* SE + 12 Pro perfect spacing */
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .specialties-ce-section {
+    margin-top: 140px !important;  /* XR, Pixel 7, 14 Pro Max consistent */
+  }
+}
