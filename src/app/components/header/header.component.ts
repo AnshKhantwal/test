@@ -1,6 +1,6 @@
 // src/app/components/header/header.component.ts
 
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; 
 
@@ -12,24 +12,28 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  
+  @ViewChild('menuToggle') menuToggle!: ElementRef<HTMLInputElement>;
+
   constructor() {}
 
-  // Method to handle book appointment button click
-  onBookAppointment(): void {
-    console.log('Book Appointment clicked');
-    // Add your routing or modal logic here
-    // Example: this.router.navigate(['/book-appointment']);
+  // Close mobile menu
+  closeMenu(): void {
+    if (this.menuToggle) {
+      this.menuToggle.nativeElement.checked = false;
+    }
   }
 
-  // Method to handle helpline click (for mobile devices)
+  onBookAppointment(): void {
+    console.log('Book Appointment clicked');
+    this.closeMenu();
+  }
+
   onHelplineClick(): void {
     window.location.href = 'tel:+918076715740';
   }
 
-  // Method to handle navigation clicks
   onNavigate(item: string): void {
     console.log('Navigating to:', item);
-    // Add your routing logic here
+    this.closeMenu();
   }
 }

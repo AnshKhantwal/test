@@ -4,7 +4,7 @@
         <div class="container">
             <div class="top-bar-content">
                 <span class="helpline" (click)="onHelplineClick()">Care Helpline: +91 80-767-15740</span>
-                <a routerLink="/contact-us" class="nav-link">
+                <a routerLink="/contact-us" class="nav-link" (click)="closeMenu()">
                     <button class="btn-book">Book Consultation</button>
                 </a>
             </div>
@@ -16,13 +16,13 @@
         <div class="container">
             <!-- Logo -->
             <div class="logo-area">
-                <a routerLink="/" class="nav-link">
+                <a routerLink="/" class="nav-link" (click)="closeMenu()">
                     <img src="assets/hospital-logo.png" alt="TB Clinic" class="logo">
                 </a>
             </div>
 
             <!-- Mobile Toggle -->
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" #menuToggle>
             <label for="menu-toggle" class="menu-icon">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -32,22 +32,22 @@
             <!-- Navigation Links -->
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }">Home</a>
+                    <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }" (click)="closeMenu()">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/about-us" class="nav-link" routerLinkActive="active">About Our Clinic</a>
+                    <a routerLink="/about-us" class="nav-link" routerLinkActive="active" (click)="closeMenu()">About Our Clinic</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/tb-treatments" class="nav-link" routerLinkActive="active">Conditions We Treat</a>
+                    <a routerLink="/tb-treatments" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Conditions We Treat</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/our-doctors" class="nav-link" routerLinkActive="active">Our TB Specialists</a>
+                    <a routerLink="/our-doctors" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Our TB Specialists</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/privacy" class="nav-link" routerLinkActive="active">Privacy & Patient Rights</a>
+                    <a routerLink="/privacy" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Privacy & Patient Rights</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/contact-us" class="nav-link" routerLinkActive="active">Contact & Support</a>
+                    <a routerLink="/contact-us" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Contact & Support</a>
                 </li>
             </ul>
         </div>
