@@ -28,7 +28,7 @@ export class SpecialtiesCeComponent {
   expertSearchInfo = {
   title: 'Need Guidance or Treatment Support?',
   description:
-    'Speak directly with our TB specialists for diagnosis, treatment planning or second opinion. Compassionate care, every step of your recovery.',
+    'Speak directly with our TB experts for diagnosis, treatment planning or second opinion. Compassionate care, every step of your recovery.',
   cta: 'Book Consultation'
 };
 }

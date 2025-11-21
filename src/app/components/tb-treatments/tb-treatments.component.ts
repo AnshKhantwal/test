@@ -70,7 +70,7 @@ export class TbTreatmentsComponent {
 expertSearchInfo: ExpertInfo = {
   title: 'Need Guidance or Treatment Support?',
   description:
-    'Our TB specialists are here to listen, guide, and support you at every step. Book a consultation or request a call-back.',
+    'Our TB experts are here to listen, guide, and support you at every step. Book a consultation or request a call-back.',
   cta: 'Book Consultation'
 };
 }
