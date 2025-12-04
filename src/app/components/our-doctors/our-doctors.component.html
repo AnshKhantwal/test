@@ -1,52 +1,138 @@
-<section class="doctors-page-content">
-  <!-- CMO SECTION -->
-  <div class="cmo-hero-section">
+<!-- our-doctors.component.html -->
+<div class="doctors-page-container">
+  <!-- Background Decorations -->
+  <div class="background-decoration decoration-top-right"></div>
+  <div class="background-decoration decoration-bottom-left"></div>
+
+  <!-- Stats Banner -->
+  <!-- <section class="stats-banner">
     <div class="container">
-      <div class="cmo-card">
-        <div class="cmo-text-content">
-          <p class="cmo-designation">Chief Medical Officer</p>
-          <h1 class="cmo-name">{{ cmo.name }}</h1>
-          <p class="cmo-experience">
-            <span class="highlight">{{ cmo.experience }}</span> in Advanced TB Care
-          </p>
-          <p class="cmo-bio">
-            {{ cmo.name }} leads our clinical programs with deep expertise in complex and drug-resistant TB. 
-            Her approach combines medical precision with compassionate patient-centered care, setting the 
-            clinical standards across all our centers.
-          </p>
-
-          <a href="/contact-us" class="nav-link">
-            <button class="btn-appointment">Book Consultation</button>
-          </a>
-        </div>
-
-        <div class="cmo-photo-placeholder">
-          <span class="initials">{{ cmo.name.charAt(0) }}</span>
+      <div class="stats-grid">
+        <div *ngFor="let stat of stats" class="stat-item">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
         </div>
       </div>
     </div>
-  </div>
+  </section> -->
 
-  <!-- SPECIALISTS GRID -->
-  <div class="container">
-    <h2 class="section-title">Meet the Experts Behind Your Care</h2>
+  <!-- CMO Hero Section -->
+  <section class="cmo-section">
+    <div class="container">
+      <!-- Section Title -->
+      <div class="section-header">
+        <h2 class="section-title">Medcross's TB Experts</h2>
+        <div class="title-underline"></div>
+      </div>
 
-    <div class="sub-doctors-grid-wrapper">
-      <h3 class="sub-title">Our Core Team of TB Experts</h3>
+      <!-- CMO Card -->
+      <div class="cmo-card-wrapper">
+        <div class="cmo-card">
+          <!-- Left Content -->
+          <div class="cmo-content">
+            <span class="cmo-badge">LEADERSHIP</span>
+            <h1 class="cmo-name">{{ cmo.name }}</h1>
+            <p class="cmo-role-text">{{ cmo.role }}</p>
 
-      <div class="doctors-grid">
-        <div *ngFor="let doctor of subDoctors" class="doctor-card">
-          <div class="doctor-photo-placeholder">
-            <span class="initials">{{ doctor.name.charAt(0) }}</span>
+            <div class="cmo-experience-box">
+              <p>
+                More than <span class="highlight">{{ cmo.experience }}</span> in {{ cmo.specialization }}
+              </p>
+            </div>
+
+            <p class="cmo-bio">{{ cmo.bio }}</p>
+
+            <div class="credentials-list">
+              <span *ngFor="let cred of cmo.credentials" class="credential-badge">
+                <svg class="icon-sm" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                {{ cred }}
+              </span>
+            </div>
           </div>
 
-          <h4 class="doctor-name">{{ doctor.name }}</h4>
-          <p class="doctor-designation">Consultant TB Expert</p>
-
-          <!-- Optional CTA (kept commented to maintain structure) -->
-          <!-- <a href="#" class="btn-view-profile">View Profile & Book</a> -->
+          <!-- Right Photo -->
+          <div class="cmo-photo-wrapper">
+            <div class="cmo-photo">
+              <span class="initials-lg">{{ cmo.name.charAt(4) }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Doctors Grid Section -->
+  <section class="doctors-section">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Our Clinical Team</h2>
+        <div class="title-underline"></div>
+        <!-- <p class="section-subtitle">Expert experts dedicated to your care</p> -->
+      </div>
+
+      <!-- Doctors Grid -->
+      <div class="doctors-grid">
+        <div
+          *ngFor="let doctor of doctors"
+          class="doctor-card"
+          (click)="toggleDoctorDetails(doctor.id)"
+          [class.expanded]="selectedDoctorId() === doctor.id"
+        >
+          <!-- Doctor Info -->
+          <div class="doctor-header">
+            <div class="doctor-photo">
+              <span class="initials">{{ doctor.initials }}</span>
+            </div>
+
+            <h3 class="doctor-name">{{ doctor.name }}</h3>
+            <p class="doctor-designation">{{ doctor.designation }}</p>
+
+            <div class="doctor-meta">
+              <p class="doctor-experience">
+                <svg class="icon-xs" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                {{ doctor.experience }}
+              </p>
+              <p class="doctor-expertise">{{ doctor.expertise }}</p>
+            </div>
+
+            <div class="doctor-expand-cta">
+              <span class="cta-text">View Profile</span>
+              <svg class="cta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Expanded Details -->
+          <div class="doctor-details" *ngIf="selectedDoctorId() === doctor.id">
+            <p class="detail-text">
+              With {{ doctor.experience }} of specialized experience in TB care, {{ doctor.name }} brings clinical expertise and compassionate patient care to every interaction.
+            </p>
+            <button class="detail-btn" (click)="bookConsultation()">
+              Book Appointment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to Start Your Journey to Better Health?</h2>
+      <p class="cta-subtitle">Connect with our expert TB experts for personalized, compassionate care.</p>
+      <button class="cta-button" (click)="bookConsultation()">
+        Book Your Consultation
+        <svg class="cta-icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+</div>
