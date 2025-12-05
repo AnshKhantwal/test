@@ -49,26 +49,29 @@
                 </svg>
                 {{ cred }}
               </span>
+              <button class="detail-btn" (click)="bookConsultation()">
+              Book Appointment
+            </button>
             </div>
           </div>
 
           <!-- Right Photo -->
-          <div class="cmo-photo-wrapper">
-            <div class="cmo-photo">
-              <span class="initials-lg">{{ cmo.name.charAt(4) }}</span>
-            </div>
-          </div>
+<div class="cmo-photo-wrapper">
+  <div class="cmo-photo">
+    <img src="assets/Dr.Sunita.jpg" alt="{{ cmo.name }}" class="cmo-photo-img">
+  </div>
+</div>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Doctors Grid Section -->
   <section class="doctors-section">
     <div class="container">
       <!-- Section Header -->
       <div class="section-header">
-        <h2 class="section-title">Our Clinical Team</h2>
+        <h2 class="section-title1">Our Clinical Team</h2>
         <div class="title-underline"></div>
         <!-- <p class="section-subtitle">Expert experts dedicated to your care</p> -->
       </div>
@@ -111,7 +114,7 @@
           <!-- Expanded Details -->
           <div class="doctor-details" *ngIf="selectedDoctorId() === doctor.id">
             <p class="detail-text">
-              With {{ doctor.experience }} of specialized experience in TB care, {{ doctor.name }} brings clinical expertise and compassionate patient care to every interaction.
+              With {{ doctor.experience }} of experience in TB care, {{ doctor.name }} brings clinical expertise and compassionate patient care to every interaction.
             </p>
             <button class="detail-btn" (click)="bookConsultation()">
               Book Appointment

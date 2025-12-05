@@ -42,7 +42,7 @@ export class OurDoctorsComponent {
     role: 'Co-Founder & Chief Medical Officer',
     experience: '20+ years',
     designation: '',
-    bio: 'Leading our clinical programs with deep expertise in complex and drug-resistant TB, ensuring high-quality, compassionate, evidence-based care across all centers.',
+    bio: 'Leading our clinical programs with deep expertise in complex forms of TB, ensuring high-quality, compassionate, evidence-based care across all centers.',
     specialization: 'TB Management & Advanced Care',
     credentials: ['MD', 'TB Expert', 'Published Researcher'],
     expertise: '',
@@ -55,32 +55,32 @@ export class OurDoctorsComponent {
       name: 'Dr. Deepak',
       designation: 'Consultant TB Expert',
       experience: '12+ years',
-      expertise: 'Drug-Resistant TB',
-      initials: 'DD'
+      expertise: '',
+      initials: 'D'
     },
     {
       id: 2,
       name: 'Dr. Pranav',
-      designation: 'Senior TB Consultant',
+      designation: 'Consultant TB Expert',
       experience: '10+ years',
-      expertise: 'Clinical Protocols',
-      initials: 'DP'
+      expertise: '',
+      initials: 'P'
     },
     {
       id: 3,
       name: 'Dr. Vikas',
-      designation: 'Pulmonary TB Expert',
+      designation: 'Consultant TB Expert',
       experience: '9+ years',
-      expertise: 'Pulmonary Care',
-      initials: 'DV'
+      expertise: '',
+      initials: 'V'
     },
     {
       id: 4,
       name: 'Dr. Diksha',
-      designation: 'Clinical TB Expert',
+      designation: 'Consultant TB Expert',
       experience: '7+ years',
-      expertise: 'Patient Care',
-      initials: 'DD'
+      expertise: '',
+      initials: 'D'
     }
   ];
 

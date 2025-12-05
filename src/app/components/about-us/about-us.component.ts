@@ -72,7 +72,7 @@ export class AboutUsComponent implements OnInit {
   },
   { 
     title: 'Innovation', 
-    description: 'We adopt modern diagnostic tools, advanced treatment strategies, and ongoing research-driven improvements to provide effective care — including support for complex and drug-resistant TB cases.',
+    description: 'We adopt modern diagnostic tools, advanced treatment strategies, and ongoing research-driven improvements to provide effective care — including support for complex TB cases.',
     icon: 'fas fa-lightbulb'
   }
 ];
