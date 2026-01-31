@@ -1,85 +1,153 @@
+<!-- footer.component.html -->
 <footer class="main-footer">
-  <div class="footer-top">
-    <div class="footer-container">
-
-      <div class="footer-main-content">
-
-        <!-- BRANDING + CONTACT -->
-        <div class="branding-section">
-          <div class="footer-logo">
-            <img src="assets/hospital-logo.png" alt="TB Clinic Logo">
-          </div>
-
-          <div class="contact-info-wrapper">
-
-            <p class="contact">
-              <i class="fa fa-phone"></i>
-              <span>
-                Need guidance? Speak to our care team<br>
-                <span class="phone-number">+91 92-180-26183</span>
-              </span>
-            </p>
-
-            <p class="email">
-              <i class="fa fa-envelope"></i>
-              <span>tbclinic.info@gmail.com</span>
-            </p>
-
-            <p class="email">
-              <i class="fa fa-map-marker-alt"></i>
-              <span>C-45, West Jyoti Nagar, Shahdara, Delhi - 94</span>
-            </p>
-
-            <a href="/">
-              <button class="btn-quick-enquiry">Book Consultation</button>
+  <!-- Main Footer Content -->
+  <div class="footer-content">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand & Contact Column -->
+        <div class="footer-brand">
+          <a routerLink="/" class="footer-logo">
+            <img src="assets/hospital-logo.png" alt="TB Clinic">
+          </a>
+          <p class="brand-tagline">Expert TB treatment with compassionate care. Your health, our priority.</p>
+          
+          <!-- Contact Cards -->
+          <div class="contact-cards">
+            <a href="tel:+919218026183" class="contact-card">
+              <div class="contact-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">Call Us</span>
+                <span class="contact-value">+91 9218026183</span>
+              </div>
+            </a>
+            
+            <a href="mailto:tbclinic.info@gmail.com" class="contact-card">
+              <div class="contact-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">tbclinic.info&#64;gmail.com</span>
+              </div>
             </a>
           </div>
-        </div>
-
-        <!-- LINKS GRID -->
-        <div class="footer-grid">
-
-          <!-- Clinic Hours -->
-          <div class="footer-col hours-col">
-            <h4>Clinic Hours</h4>
-            <div *ngFor="let item of clinicHours" class="hour-row">
-              <i class="fa fa-clock"></i>
-              <span class="days">{{ item.days }}</span>
-              <span class="time">{{ item.hours }}</span>
+          <a routerLink="/contact-us" class="btn-book-footer">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Book Consultation
+          </a>
+          <!-- Social Links -->
+          <!-- <div class="social-links">
+            <span class="social-label">Follow Us</span>
+            <div class="social-icons">
+              @for (social of socialMedia; track social.icon) {
+                <a [href]="social.url" target="_blank" rel="noopener" class="social-icon" [attr.aria-label]="social.name">
+                  <i class="fab" [class]="social.icon"></i>
+                </a>
+              }
             </div>
-          </div>
-
-          <!-- Our Network (Google Map Links) -->
-          <div class="footer-col network-col">
-            <h4>Our Clinic Locations</h4>
-            <ul>
-              <li *ngFor="let link of networkOfCare2">
-                <i class="fa fa-map-marker-alt"></i>
-                <a [href]="link.url" target="_blank" rel="noopener">{{ link.name }}</a>
-              </li>
-            </ul>
-
-            <button class="btn-join-team">Work With Us</button>
-          </div>
-
-          <!-- Key Resources -->
-          <div class="footer-col">
-            <h4>Explore</h4>
-            <ul>
-              <li *ngFor="let link of keyResources">
-                <a (click)="navigate(link); $event.preventDefault()">{{ link.name }}</a>
-              </li>
-            </ul>
-          </div>
-
+          </div> -->
         </div>
-
+        
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h4 class="column-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+            </svg>
+            Quick Links
+          </h4>
+          <ul class="footer-links">
+            @for (link of quickLinks; track link.url) {
+              <li>
+                <a [routerLink]="link.url" (click)="navigate(link); $event.preventDefault()">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  {{ link.name }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <!-- Clinic Hours Column -->
+        <div class="footer-column">
+          <h4 class="column-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Clinic Hours
+          </h4>
+          <div class="hours-list">
+            @for (item of clinicHours; track item.days) {
+              <div class="hours-item" [class.closed]="item.hours === 'Closed'">
+                <span class="hours-day">{{ item.days }}</span>
+                <span class="hours-time">{{ item.hours }}</span>
+              </div>
+            }
+          </div>
+          
+          <!-- <a routerLink="/contact-us" class="btn-book-footer">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Book Consultation
+          </a> -->
+        </div>
+        
+        <!-- Locations Column -->
+        <div class="footer-column">
+          <h4 class="column-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            Our Locations
+          </h4>
+          <ul class="locations-list">
+            @for (location of networkOfCare2; track location.name) {
+              <li>
+                <a [href]="location.url" target="_blank" rel="noopener">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  </svg>
+                  {{ location.name }}
+                </a>
+              </li>
+            }
+          </ul>
+          
+          <a href="#" class="btn-careers">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            Work With Us
+          </a>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- COPYRIGHT -->
+  
+  <!-- Footer Bottom -->
   <div class="footer-bottom">
-    <p>2019 TB Clinic. All Rights Reserved.</p>
+    <div class="container">
+      <div class="footer-bottom-content">
+        <p class="copyright">© 2019 - {{ currentYear }} TB Clinic. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a routerLink="/privacy">Privacy Policy</a>
+          <span class="divider">|</span>
+          <a routerLink="/contact-us">Contact Us</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>

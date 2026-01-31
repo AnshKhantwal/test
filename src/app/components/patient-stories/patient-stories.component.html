@@ -1,68 +1,75 @@
 <section class="testimonials-section">
-  <div class="section-header">
-    <h2>What Our Patients Say</h2>
-  </div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Patient Stories</span>
+      <h2>What Our Patients Say</h2>
+      <div class="title-underline"></div>
+    </div>
 
-  <p class="testimonial-intro">
-    Every recovery journey matters. Here are real experiences shared by patients who trusted us with their TB care.
-  </p>
+    <p class="testimonial-intro">
+      Real experiences from patients who trusted us with their TB care journey.
+    </p>
 
-  <div class="verified-line">
-    ★ Verified Google Patient Reviews
-  </div>
+    <div class="verified-badge">
+      <img src="assets/google-icon.png" alt="Google" class="google-icon">
+      <span>Verified Google Reviews</span>
+    </div>
 
-  <div class="carousel-container">
-    
-    <!-- Left Navigation Button -->
-    <button class="nav-button prev-button" (click)="prevSlide()">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    
-    <!-- Testimonial Slides -->
-    <div class="slides-wrapper">
-      <div 
-        class="testimonial-slider"
-        [style.transform]="'translateX(' + (-currentSlideIndex * 100) + '%)'"
-      >
-        <div class="testimonial-card" *ngFor="let testimonial of testimonials">
-
-          <div class="review-avatar">
-            {{ testimonial.name.charAt(0).toUpperCase() }}
-          </div>
-
-          <div class="quote-content">
-            <i class="fa fa-quote-left quote-icon"></i>
-            <p class="quote-text">{{ testimonial.quote }}</p>
-          </div>
-          
-          <div class="author-info">
-            <p class="author-name"><strong>{{ testimonial.name }}</strong></p>
-            <p class="author-title">Recovered Patient</p>
-
-            <div class="google-review-badge">
-              <img src="assets/google-icon.png" alt="Google Logo">
-              <span>Google Review</span>
+    <div class="carousel-container">
+      <!-- Left Navigation Button -->
+      <button class="nav-button prev-button" (click)="prevSlide()" aria-label="Previous testimonial">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      
+      <!-- Testimonial Slides -->
+      <div class="slides-wrapper">
+        <div 
+          class="testimonial-slider"
+          [style.transform]="'translateX(' + (-currentSlideIndex * 100) + '%)'"
+        >
+          @for (testimonial of testimonials; track $index) {
+            <div class="testimonial-card">
+              <div class="card-content">
+                <div class="quote-icon">
+                  <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                </div>
+                <p class="quote-text">{{ testimonial.quote }}</p>
+                <div class="author-section">
+                  <div class="author-avatar">{{ testimonial.name.charAt(0).toUpperCase() }}</div>
+                  <div class="author-details">
+                    <span class="author-name">{{ testimonial.name }}</span>
+                    <span class="author-title">Recovered Patient</span>
+                    <div class="star-rating">★★★★★</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-
+          }
         </div>
       </div>
+      
+      <!-- Right Navigation Button -->
+      <button class="nav-button next-button" (click)="nextSlide()" aria-label="Next testimonial">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
     </div>
     
-    <!-- Right Navigation Button -->
-    <button class="nav-button next-button" (click)="nextSlide()">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-    
+    <!-- Dot Indicators -->
+    <div class="dots-container">
+      @for (i of displayedDots; track i) {
+        <button
+          class="dot"
+          [class.active]="currentSlideIndex >= i && currentSlideIndex < getDotRangeEnd(i)"
+          (click)="currentSlideIndex = i; resetAutoScroll()"
+          [attr.aria-label]="'Go to testimonial ' + (i + 1)"
+        ></button>
+      }
+    </div>
   </div>
-  
-  <!-- Dot Indicators -->
-  <div class="dots-container">
-  <span
-    *ngFor="let i of displayedDots"
-    class="dot"
-    [class.active]="currentSlideIndex >= i && currentSlideIndex < getDotRangeEnd(i)"
-    (click)="currentSlideIndex = i; resetAutoScroll()"
-  ></span>
-</div>
 </section>

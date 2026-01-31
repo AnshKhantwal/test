@@ -54,7 +54,7 @@ export class OurDoctorsComponent {
     {
       id: 1,
       name: 'Dr. Deepak',
-      designation: 'Consultant TB Expert',
+      designation: 'Tuberculosis (TB) Expert',
       experience: '12+ years',
       expertise: '',
       initials: 'D'
@@ -62,7 +62,7 @@ export class OurDoctorsComponent {
     {
       id: 2,
       name: 'Dr. Pranav',
-      designation: 'Consultant TB Expert',
+      designation: 'Tuberculosis (TB) Expert',
       experience: '10+ years',
       expertise: '',
       initials: 'P'
@@ -70,7 +70,7 @@ export class OurDoctorsComponent {
     {
       id: 3,
       name: 'Dr. Vikas',
-      designation: 'Consultant TB Expert',
+      designation: 'Tuberculosis (TB) Expert',
       experience: '9+ years',
       expertise: '',
       initials: 'V'
@@ -78,7 +78,7 @@ export class OurDoctorsComponent {
     {
       id: 4,
       name: 'Dr. Diksha',
-      designation: 'Consultant TB Expert',
+      designation: 'Tuberculosis (TB) Expert',
       experience: '7+ years',
       expertise: '',
       initials: 'D'
@@ -87,8 +87,7 @@ export class OurDoctorsComponent {
 
   stats: Stat[] = [
     { value: '500+', label: 'Patients Treated' },
-    { value: '98%', label: 'Success Rate' },
-    { value: '15+', label: 'Years Combined' }
+    { value: '50+', label: 'Years Combined Experience' }
   ];
 
   toggleDoctorDetails(doctorId: number): void {

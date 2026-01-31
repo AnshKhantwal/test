@@ -1,143 +1,229 @@
 <!-- our-doctors.component.html -->
 <div class="doctors-page-container">
-  <!-- Background Decorations -->
+  <!-- Animated Background Elements -->
   <div class="background-decoration decoration-top-right"></div>
   <div class="background-decoration decoration-bottom-left"></div>
+  <div class="background-decoration decoration-center"></div>
 
-  <!-- Stats Banner -->
-  <!-- <section class="stats-banner">
+  <!-- CMO Leadership Section - FIRST -->
+  <section class="cmo-section hero-cmo">
     <div class="container">
-      <div class="stats-grid">
-        <div *ngFor="let stat of stats" class="stat-item">
-          <div class="stat-value">{{ stat.value }}</div>
-          <div class="stat-label">{{ stat.label }}</div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- CMO Hero Section -->
-  <section class="cmo-section">
-    <div class="container">
-      <!-- Section Title -->
       <div class="section-header">
-        <h2 class="section-title">TB Clinic.in Team</h2>
+        <span class="section-label">Leadership</span>
+        <h2 class="section-title">Meet Our Chief Medical Officer</h2>
         <div class="title-underline"></div>
       </div>
 
       <!-- CMO Card -->
       <div class="cmo-card-wrapper">
         <div class="cmo-card">
-          <!-- Left Content -->
-          <div class="cmo-content">
-            <span class="cmo-badge">LEADERSHIP</span>
-            <h1 class="cmo-name">{{ cmo.name }}</h1>
-            <p class="cmo-role-text">{{ cmo.role }}</p>
+          <!-- Photo Side -->
+          <div class="cmo-photo-wrapper">
+            <div class="cmo-photo-container">
+              <div class="cmo-photo">
+                <img src="assets/Dr.Sunita.jpg" alt="{{ cmo.name }}" class="cmo-photo-img">
+              </div>
+              <div class="photo-ring photo-ring-1"></div>
+              <div class="photo-ring photo-ring-2"></div>
+            </div>
+            <div class="cmo-quick-stats">
+              <div class="quick-stat">
+                <span class="quick-stat-value">{{ cmo.experience }}</span>
+                <span class="quick-stat-label">Experience</span>
+              </div>
+            </div>
+          </div>
 
-            <div class="cmo-experience-box">
-              <p>
-                More than <span class="highlight">{{ cmo.experience }}</span> in {{ cmo.specialization }}
-              </p>
+          <!-- Content Side -->
+          <div class="cmo-content">
+            <div class="cmo-header">
+              <span class="cmo-badge">
+                <svg class="badge-icon-sm" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Chief Medical Officer
+              </span>
+              <h1 class="cmo-name">{{ cmo.name }}</h1>
+              <p class="cmo-role-text">{{ cmo.role }}</p>
+            </div>
+
+            <div class="cmo-specialization">
+              <div class="spec-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+                </svg>
+              </div>
+              <div class="spec-content">
+                <span class="spec-label">Expertise</span>
+                <span class="spec-value">{{ cmo.specialization }}</span>
+              </div>
             </div>
 
             <p class="cmo-bio">{{ cmo.bio }}</p>
 
-            <div class="credentials-list">
-              <span *ngFor="let cred of cmo.credentials" class="credential-badge">
-                <svg class="icon-sm" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                {{ cred }}
-              </span>
-              <button class="detail-btn" (click)="bookConsultation()">
-              Book Appointment
+            <div class="credentials-section">
+              <span class="credentials-title">Credentials & Expertise</span>
+              <div class="credentials-list">
+                @for (cred of cmo.credentials; track cred) {
+                  <span class="credential-badge">
+                    <svg class="cred-icon" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    {{ cred }}
+                  </span>
+                }
+              </div>
+            </div>
+
+            <button class="cmo-cta-btn" (click)="bookConsultation()">
+              <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Book Consultation
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-banner">
+        @for (stat of stats; track stat.label; let i = $index) {
+          <div class="stat-item" [style.animation-delay]="(i * 0.1) + 's'">
+            <div class="stat-icon-wrapper">
+              @if (i === 0) {
+                <svg class="stat-icon" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+              } @else {
+                <svg class="stat-icon" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                </svg>
+              }
+            </div>
+            <div class="stat-content">
+              <div class="stat-value">{{ stat.value }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
             </div>
           </div>
-
-          <!-- Right Photo -->
-<div class="cmo-photo-wrapper">
-  <div class="cmo-photo">
-    <img src="assets/Dr.Sunita.jpg" alt="{{ cmo.name }}" class="cmo-photo-img">
-  </div>
-</div>
-        </div>
+        }
       </div>
     </div>
   </section>
 
   <app-patient-stories></app-patient-stories>
   
-  <!-- Doctors Grid Section -->
+  <!-- Clinical Team Section -->
   <section class="doctors-section">
     <div class="container">
-      <!-- Section Header -->
       <div class="section-header">
-        <h2 class="section-title1">Our Clinical Team</h2>
-        <div class="title-underline1"></div>
-        <!-- <p class="section-subtitle">Expert experts dedicated to your care</p> -->
+        <span class="section-label">Our Experts</span>
+        <h2 class="section-title">Clinical Team</h2>
+        <div class="title-underline"></div>
+        <p class="section-subtitle">Expert TB experts dedicated to providing exceptional patient care</p>
       </div>
 
       <!-- Doctors Grid -->
       <div class="doctors-grid">
-        <div
-          *ngFor="let doctor of doctors"
-          class="doctor-card"
-          (click)="toggleDoctorDetails(doctor.id)"
-          [class.expanded]="selectedDoctorId() === doctor.id"
-        >
-          <!-- Doctor Info -->
-          <div class="doctor-header">
-            <div class="doctor-photo">
-              <span class="initials">{{ doctor.initials }}</span>
-            </div>
+        @for (doctor of doctors; track doctor.id; let i = $index) {
+          <div
+            class="doctor-card"
+            [class.expanded]="selectedDoctorId() === doctor.id"
+            [style.animation-delay]="(i * 0.1) + 's'"
+            (click)="toggleDoctorDetails(doctor.id)"
+          >
+            <!-- Card Top Pattern -->
+            <div class="card-pattern"></div>
+            
+            <!-- Doctor Info -->
+            <div class="doctor-header">
+              <div class="doctor-photo-container">
+                <div class="doctor-photo">
+                  <span class="initials">{{ doctor.initials }}</span>
+                </div>
+                <div class="experience-badge">{{ doctor.experience }}</div>
+              </div>
 
-            <h3 class="doctor-name">{{ doctor.name }}</h3>
-            <p class="doctor-designation">{{ doctor.designation }}</p>
+              <h3 class="doctor-name">{{ doctor.name }}</h3>
+              <p class="doctor-designation">{{ doctor.designation }}</p>
 
-            <div class="doctor-meta">
-              <p class="doctor-experience">
-                <svg class="icon-xs" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <div class="doctor-skills">
+                <span class="skill-tag">TB Care</span>
+                <span class="skill-tag">Patient Consultation</span>
+              </div>
+
+              <div class="doctor-expand-cta" [class.expanded]="selectedDoctorId() === doctor.id">
+                <span class="cta-text">{{ selectedDoctorId() === doctor.id ? 'Hide Profile' : 'View Profile' }}</span>
+                <svg class="cta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
-                {{ doctor.experience }}
-              </p>
-              <p class="doctor-expertise">{{ doctor.expertise }}</p>
+              </div>
             </div>
 
-            <div class="doctor-expand-cta">
-              <span class="cta-text">View Profile</span>
-              <svg class="cta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
+            <!-- Expanded Details -->
+            <div class="doctor-details" [class.show]="selectedDoctorId() === doctor.id">
+              <div class="details-content">
+                <p class="detail-text">
+                  With {{ doctor.experience }} of experience in TB care, {{ doctor.name }} brings clinical expertise and compassionate patient care to every interaction.
+                </p>
+                <div class="detail-highlights">
+                  <div class="highlight-item">
+                    <svg class="highlight-icon" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <span>Evidence-based treatment</span>
+                  </div>
+                  <div class="highlight-item">
+                    <svg class="highlight-icon" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <span>Patient-centered approach</span>
+                  </div>
+                </div>
+                <button class="detail-btn" (click)="bookConsultation(); $event.stopPropagation()">
+                  <svg class="btn-icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  Book Appointment
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Expanded Details -->
-          <div class="doctor-details" *ngIf="selectedDoctorId() === doctor.id">
-            <p class="detail-text">
-              With {{ doctor.experience }} of experience in TB care, {{ doctor.name }} brings clinical expertise and compassionate patient care to every interaction.
-            </p>
-            <button class="detail-btn" (click)="bookConsultation()">
-              Book Appointment
-            </button>
-          </div>
-        </div>
+        }
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="cta-section">
+    <div class="cta-bg-pattern"></div>
     <div class="container">
-      <h2 class="cta-title">Ready to Start Your Journey to Better Health?</h2>
-      <p class="cta-subtitle">Connect with our expert TB experts for personalized, compassionate care.</p>
-      <button class="cta-button" (click)="bookConsultation()">
-        Book Your Consultation
-        <svg class="cta-icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </button>
+      <div class="cta-content">
+        <div class="cta-icon-wrapper">
+          <svg class="cta-main-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+          </svg>
+        </div>
+        <h2 class="cta-title">Ready to Start Your Journey to Better Health?</h2>
+        <p class="cta-subtitle">Connect with our expert TB experts for personalized, compassionate care tailored to your needs.</p>
+        <div class="cta-buttons">
+          <button class="cta-button primary" (click)="bookConsultation()">
+            <svg class="cta-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Book Consultation
+          </button>
+          <a href="tel:+919999999999" class="cta-button secondary">
+            <svg class="cta-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            Call Now
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </div>

@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // CRITICAL for *ngFor
-// import { AwardsComponent } from '../awards/awards.component'; 
-// import { AboutHospitalComponent } from '../about-hospital/about-hospital.component'; 
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
   imports: [
-    CommonModule, 
-    // AwardsComponent, 
-    // Add any other components used in about-us.component.html
+    CommonModule,
+    RouterLink
   ], 
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss']
@@ -18,8 +16,8 @@ export class AboutUsComponent implements OnInit {
 
   // Data for the Red Stats Banner
   stats = [
-    { value: '22 Lakhs', label: 'Total TB Patients per year in India', icon: 'fas fa-check-circle' },
-    { value: '03 Lakhs', label: 'Total Deaths Due to TB per year in India. One TB Patients dies every 90 seconds in India', icon: 'fas fa-award' },
+    { value: '27 Lakhs', label: 'Total TB Patients per year in India', icon: 'fas fa-check-circle' },
+    { value: '3.15 Lakhs', label: 'Total Deaths Due to TB per year in India. One TB Patients dies every ~90 seconds in India', icon: 'fas fa-award' },
     { value: '22 Lakhs', label: 'Sputum positive Patients per year', icon: 'fas fa-globe' }
   ];
 
