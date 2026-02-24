@@ -37,6 +37,16 @@ export const routes: Routes = [
       import('./components/tb-treatments/tb-treatments.component').then((m) => m.TbTreatmentsComponent),
   },
   {
+    path: 'blood-from-mouth',
+    loadComponent: () =>
+      import('./components/blood-from-mouth/blood-from-mouth.component').then((m) => m.bloodFromMouthComponent),
+  },
+  {
+    path: 'typhoid',
+    loadComponent: () =>
+      import('./components/typhoid/typhoid.component').then((m) => m.TyphoidComponent),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

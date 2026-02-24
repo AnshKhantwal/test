@@ -1,0 +1,216 @@
+<main class="tb-awareness-page">
+  <!-- Navbar removed: NavbarComponent does not exist -->
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <!-- <div class="alert-badge">
+        <span class="pulse"></span>
+        ⚠️ Important Health Alert
+      </div> -->
+      <h1 class="hero-title">
+        <span class="highlight">Blood from Mouth</span>
+        <br>Can Be <span class="tb-highlight">TB</span>
+      </h1>
+      <p class="hero-subtitle">
+        Coughing blood (hemoptysis) is a serious symptom that could indicate Tuberculosis.
+        Don't ignore it – consult a TB expert today for proper diagnosis and treatment.
+      </p>
+      <button class="cta-button" (click)="scrollToForm()">
+        <span>Get Consultation</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+    <div class="hero-image">
+      <div class="medical-icon">
+        🫁
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Form Section -->
+  <section class="form-section" id="consultation-form">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Book Your <span class="highlight">Consultation</span></h2>
+        <p>Fill out the form below and our TB experts will contact you soon.</p>
+      </div>
+
+      @if (isSubmitted()) {
+        <div class="success-message">
+          <div class="success-icon">✅</div>
+          <h3>Thank You!</h3>
+          <p>Your consultation request has been submitted successfully. Our Team will contact you soon.</p>
+          <button class="secondary-button" (click)="isSubmitted.set(false)">Submit Another Request</button>
+        </div>
+      } @else {
+        <form (ngSubmit)="onSubmit()" #consultForm="ngForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                [(ngModel)]="formData.name"
+                required
+                placeholder="Enter your full name"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                [(ngModel)]="formData.phone"
+                required
+                placeholder="Enter your phone number"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address (Optional)</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                [(ngModel)]="formData.email"
+                placeholder="Enter your email address"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="duration">How long have you had symptoms?</label>
+              <select id="duration" name="duration" [(ngModel)]="formData.duration">
+                <option value="">Select duration</option>
+                <option value="less-than-week">Less than a week</option>
+                <option value="1-2-weeks">1-2 weeks</option>
+                <option value="2-4-weeks">2-4 weeks</option>
+                <option value="more-than-month">More than a month</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="symptoms">Describe Your Symptoms (If Any)</label>
+              <textarea 
+                id="symptoms" 
+                name="symptoms"
+                [(ngModel)]="formData.symptoms"
+                rows="4"
+                placeholder="Please describe your symptoms in detail (e.g., blood in cough, fever, night sweats, weight loss)"
+              ></textarea>
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            class="submit-button" 
+            [disabled]="!consultForm.valid || isLoading()"
+          >
+            @if (isLoading()) {
+              <span class="loader"></span>
+              Submitting...
+            } @else {
+              Submit Consultation Request
+            }
+          </button>
+        </form>
+      }
+    </div>
+  </section>
+
+  <!-- Symptoms Section -->
+  <section class="symptoms-section" id="symptoms">
+    <div class="section-container">
+      <h2 class="section-title">
+        Common <span class="highlight">TB Symptoms</span> to Watch For
+      </h2>
+      <p class="section-subtitle">
+        Tuberculosis can present with various symptoms. If you experience any of these, especially blood in cough, seek medical attention immediately.
+      </p>
+
+      <div class="symptoms-grid">
+        @for (symptom of symptoms; track symptom.title) {
+          <div class="symptom-card">
+            <div class="symptom-icon">{{ symptom.icon }}</div>
+            <h3>{{ symptom.title }}</h3>
+            <p>{{ symptom.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section" id="info">
+    <div class="section-container">
+      <div class="info-content">
+        <div class="info-text">
+          <h2>Why is Blood from Mouth <span class="highlight">a Serious Sign?</span></h2>
+          <p>
+            Hemoptysis (coughing up blood) can be a warning sign of pulmonary tuberculosis (TB). 
+            TB is caused by bacteria that primarily attacks the lungs. When the infection damages 
+            lung tissue and blood vessels, it can lead to bleeding that appears in your cough.
+          </p>
+          <p>
+            <strong>Early detection is crucial.</strong> TB is completely curable when diagnosed 
+            early and treated properly. Don't delay – your health is our priority.
+          </p>
+          
+          <div class="facts-list">
+            <h4>Key Facts About TB:</h4>
+            <ul>
+              @for (fact of facts; track fact) {
+                <li>
+                  <span class="check-icon">✓</span>
+                  {{ fact }}
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+        <div class="info-stats">
+          <div class="stat-card">
+            <div class="stat-number">10M+</div>
+            <div class="stat-label">TB Cases Annually</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">85%</div>
+            <div class="stat-label">Curable with Treatment</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">6-9</div>
+            <div class="stat-label">Months Treatment Duration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>Ready to Get Expert TB Care?</h2>
+      <p>Visit our main website for comprehensive TB treatment services, doctor consultations, and more resources.</p>
+      <button class="redirect-button" (click)="redirectToTbClinic()">
+        <span>Visit TBClinic.in</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" [class.visible]="isScrolled()" (click)="scrollToTop()" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+</main>

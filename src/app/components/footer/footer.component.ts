@@ -26,7 +26,9 @@ export class FooterComponent {
     { name: 'What We Treat', url: '/tb-treatments' },
     { name: 'Our Doctors', url: '/our-doctors' },
     { name: 'Contact Us', url: '/contact-us' },
-    { name: 'Privacy Policy', url: '/privacy' }
+    { name: 'Privacy Policy', url: '/privacy' },
+    { name: 'Blood From Mouth', url: '/blood-from-mouth' },
+    { name: 'Typhoid', url: '/typhoid' }
   ];
 
   keyResources: LinkItem[] = [
